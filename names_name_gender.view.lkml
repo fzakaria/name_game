@@ -1,20 +1,19 @@
-- view: name_gender
-  fields:
-      
-  - dimension: name_gender
+view: name_gender {
+  dimension: name_gender {
     suggest_explore: names_gender_suggest
     suggest_dimension: name_gender
-    sql: |
-      CONCAT(${name},'-' ,${gender})
-      
-      
-- explore: names_gender_suggest
-  hidden: true
-  
-- view: names_gender_suggest
-  derived_table:
-    sql: |
-      SELECT 
+    sql: ${TABLE}.name_gender)
+      ;;
+  }
+}
+
+explore: names_gender_suggest {
+  hidden: yes
+}
+
+view: names_gender_suggest {
+  derived_table: {
+    sql: SELECT
         CONCAT(name, '-' , gender) as name_gender
         , SUM(number)
       FROM
@@ -25,6 +24,8 @@
         {% endif %}
       GROUP BY 1
       ORDER by 2 DESC
-      
-  fields:
-  - dimension: name_gender
+       ;;
+  }
+
+  dimension: name_gender {}
+}

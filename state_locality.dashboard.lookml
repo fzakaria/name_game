@@ -7,7 +7,7 @@
   - name: year
     title: "Year"
     type: number_filter
-   
+
   - name: threshold
     title: Threshold Population
     type: number_filter
@@ -337,4 +337,3 @@
     title: WY
     filters:
       names_step_10.select_state: WY
-
