@@ -3,12 +3,7 @@
 #
 view: names_step_0 {
   view_label: "Names"
-  sql_table_name: {% if _dialect._name == 'bigquery' %}
-      [fh-bigquery:popular_names.usa_1910_2013]
-    {% else %}
-      names
-    {% endif %}
-     ;;
+  sql_table_name: `fh-bigquery.popular_names.usa_1910_2013`;;
 
     dimension: name {
       sql: ${TABLE}.name ;;

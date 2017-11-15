@@ -1,4 +1,4 @@
-connection: "lookerdata_publicdata"
+connection: "lookerdata_publicdata_standard_sql"
 
 # added by Tig so filters aren't case sensitive
 case_sensitive: no

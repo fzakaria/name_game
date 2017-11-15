@@ -17,11 +17,7 @@ view: names_gender_suggest {
         CONCAT(name, '-' , gender) as name_gender
         , SUM(number)
       FROM
-        {% if _dialect._name == 'bigquery' %}
-          [fh-bigquery:popular_names.usa_1910_2013]
-        {% else %}
-          names
-        {% endif %}
+        `fh-bigquery.popular_names.usa_1910_2013`
       GROUP BY 1
       ORDER by 2 DESC
        ;;
